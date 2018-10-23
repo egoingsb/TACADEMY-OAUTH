@@ -14,3 +14,4 @@ http://bit.ly/ta-oauth
 - [facebook 로그인 플로워 직접 빌드](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow)
 - [facebook user api](https://developers.facebook.com/docs/graph-api/reference/v3.1/user
 ) 
+- [facebook javascript SDK](https://developers.facebook.com/docs/javascript)

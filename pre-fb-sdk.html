@@ -1,52 +1,50 @@
 <!doctype html>
 <html>
-    <body>
-        <div id="welcome"></div>
-        <input type="button" id="loginBtn" value="..checking" onclick="
-            if(this.value === 'Login'){
-                FB.login(function(){
-                    refreshLoginStatus();
-                });
-            } else if(this.value === 'Logout'){
-                FB.logout(function(){
-                    refreshLoginStatus();
-                });
-            }
-        ">
-<script>
-        function refreshLoginStatus(){
-            FB.getLoginStatus(function(response){
-            if(response.status === 'connected'){
-                FB.api('/me', function(response){
-                    document.getElementById('loginBtn').value = 'Logout'
-                    document.getElementById('welcome').innerHTML = 'Welcome, '+response.name;
-                });
-            } else {
-                document.getElementById('loginBtn').value = 'Login'
-                document.getElementById('welcome').innerHTML = '';
-            }
-          })   
-        }
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '1975934635802342',
-            cookie     : true,
-            xfbml      : true,
-            version    : 'v3.1'
-          });
-            
-          FB.AppEvents.logPageView();   
-          
-          refreshLoginStatus();
+
+<body>
+    <div id="notice" style="display:none">
+        이 기능을 이용하기 위해서는 facebook에서 권한을 승인해야 합니다.
+        <a href="https://www.facebook.com/v3.1/dialog/oauth?client_id=414363225802046&redirect_uri=https://localhost:8000/fb-low.html&state=1234&response_type=token
+              ">권한승인
+            바로가기</a>
+    </div>
+    <div id="welcome" style="display:none"></div>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '414363225802046',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v3.1'
+            });
+
+            console.log('Init');
+
+            FB.getLoginStatus(function (response) {
+                console.log('FB.getLoginStatus', response);
+                if(response.status === 'connected'){
+                    document.querySelector('#welcome').style.display = 'block';
+                    FB.api('/me', function(response){
+                        console.log(response);
+                        document.querySelector('#welcome').innerHTML = 'Welcome, '+response.name;
+                    })
+                } else {
+                    document.querySelector('#notice').style.display = 'block';
+                }
+            });
         };
-      
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "https://connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
-      </script>
-    </body>
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+</body>
+
 </html>
