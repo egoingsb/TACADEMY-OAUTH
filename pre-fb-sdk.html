@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <body>
+        <div id="welcome"></div>
+        <input type="button" id="loginBtn" value="..checking" onclick="
+            if(this.value === 'Login'){
+                FB.login(function(){
+                    refreshLoginStatus();
+                });
+            } else if(this.value === 'Logout'){
+                FB.logout(function(){
+                    refreshLoginStatus();
+                });
+            }
+        ">
+<script>
+        function refreshLoginStatus(){
+            FB.getLoginStatus(function(response){
+            if(response.status === 'connected'){
+                FB.api('/me', function(response){
+                    document.getElementById('loginBtn').value = 'Logout'
+                    document.getElementById('welcome').innerHTML = 'Welcome, '+response.name;
+                });
+            } else {
+                document.getElementById('loginBtn').value = 'Login'
+                document.getElementById('welcome').innerHTML = '';
+            }
+          })   
+        }
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1975934635802342',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v3.1'
+          });
+            
+          FB.AppEvents.logPageView();   
+          
+          refreshLoginStatus();
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
+    </body>
+</html>

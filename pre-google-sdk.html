@@ -1,0 +1,46 @@
+<html>
+
+<body>
+    <div id="welcome"></div>
+    <input type="button" id="loginBtn" value="checking...." onclick="
+        if(this.value === 'Login'){
+            gauth.signIn().then(function(){
+                console.log('Sign In');
+            });
+        } else if(this.value === 'Logout'){
+            gauth.signOut().then(function(){
+                console.log('Sign Out');
+            });
+        }
+    ">
+    <script>
+        function init() {
+            console.log('init');
+            gapi.load('auth2', function () {
+                gauth = gapi.auth2.init({
+                    client_id: '49053719296-05butb3boju3pva3rio381ibn2itbhpl.apps.googleusercontent.com'
+                });
+                gauth.isSignedIn.listen(function(isLogined){
+                    if(isLogined){
+                        document.querySelector('#loginBtn').value = 'Logout';
+                        var guser = gauth.currentUser.get();
+                        var profile = guser.getBasicProfile();
+                        document.querySelector('#welcome').innerHTML = 'Hello, '+profile.getName();
+                    } else {
+                        document.querySelector('#loginBtn').value = 'Login';
+                    }
+                });
+                gauth.then(function () {
+                    console.log('init success');
+                }, function () {
+                    console.log('init fail');
+                });
+            })
+
+        }
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+</body>
+
+</html>
