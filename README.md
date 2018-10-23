@@ -9,3 +9,8 @@ http://bit.ly/ta-oauth
 # 회원가입 해주세요
 - facebook.com
 - google.com
+
+# 참고자료
+- [facebook 로그인 플로워 직접 빌드](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow)
+- [facebook user api](https://developers.facebook.com/docs/graph-api/reference/v3.1/user
+) 
