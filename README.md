@@ -2,9 +2,9 @@
 http://bit.ly/ta-oauth
 
 # 설치해주세요
+- visual studio code - https://code.visualstudio.com/ 
 - nodejs - https://nodejs.org/en/
-- local-web-server - https://www.npmjs.com/package/local-web-server
-- visual studio code - https://code.visualstudio.com/ (선택)
+- local-web-server - https://www.npmjs.com/package/local-web-server (수업시간에 설치 예정입니다)
 
 # 회원가입 해주세요
 - facebook.com
