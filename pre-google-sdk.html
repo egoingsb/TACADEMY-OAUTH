@@ -26,7 +26,7 @@
         }
 
         function init() {
-            console.log('init');
+            console.log('init');    
             gapi.load('auth2', function () {
                 console.log('auth2');
                 var gauth = gapi.auth2.init({
@@ -36,7 +36,7 @@
                     console.log('auth init success');
                     refreshAuthStatus();
                 }, function () {
-                    console.log('auth fail');
+            onsole.log('auth fail');
                 })
             });
         }
