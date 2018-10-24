@@ -15,3 +15,5 @@ http://bit.ly/ta-oauth
 - [facebook user api](https://developers.facebook.com/docs/graph-api/reference/v3.1/user
 ) 
 - [facebook javascript SDK](https://developers.facebook.com/docs/javascript)
+- [facebook 권한참조](https://developers.facebook.com/docs/facebook-login/permissions/)
+- [google login reference](https://developers.google.com/identity/sign-in/web/reference)

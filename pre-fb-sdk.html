@@ -8,7 +8,7 @@
             if(this.value === 'Login'){
                 FB.login(function(response){
                     refreshAuthStatus();
-                });
+                }, {scope:'email'});
             } else {
                 FB.logout(function(response){
                     refreshAuthStatus();

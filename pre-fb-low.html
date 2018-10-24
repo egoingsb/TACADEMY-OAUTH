@@ -4,7 +4,7 @@
 <body>
     <div id="notice">
         이 기능을 이용하기 위해서는 facebook에서 권한을 승인해야 합니다.
-        <a href="https://www.facebook.com/v3.1/dialog/oauth?client_id=414363225802046&redirect_uri=https://localhost:8000/fb-low.html&state=1234&response_type=token
+        <a href="https://www.facebook.com/v3.1/dialog/oauth?client_id=414363225802046&redirect_uri=https://localhost:8000/pre-fb-low.html&state=1234&response_type=token
               ">권한승인
             바로가기</a>
     </div>
@@ -19,7 +19,7 @@
             var access_token = atr[1];
             console.log('access token : ', access_token);
             fetch(
-                    "https://graph.facebook.com/v3.1/me/?access_token=EAAF43HThxT4BAKMLpPi2SKB1k0m3jYKV8a2mGm7juBFT6tVnkTlFtriD7tZCw7VMrtGtzHZBTRALEpxghgpg2iHv9UFv63w1kpMCoO9RMXZBmLCsKV69vmyngoEE1FQyhjxexpRHbaGbZBbE9nhG081MnK0qKM9e3OZBQZCS1nDpM8xH81i02FWFNabZAfI9A70jeXdqF6KjCDBuTyf9dDr"
+                    "https://graph.facebook.com/v3.1/me/?access_token="+access_token
                 )
                 .then(function (raw) {
                     return raw.json();

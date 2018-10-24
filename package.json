@@ -1,0 +1,22 @@
+{
+  "name": "tacademy",
+  "version": "1.0.0",
+  "description": "http://bit.ly/ta-oauth",
+  "main": "pre-fb-node-low.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egoingsb/TACADEMY-OAUTH.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egoingsb/TACADEMY-OAUTH/issues"
+  },
+  "homepage": "https://github.com/egoingsb/TACADEMY-OAUTH#readme",
+  "dependencies": {
+    "node-fetch": "^2.2.0"
+  }
+}

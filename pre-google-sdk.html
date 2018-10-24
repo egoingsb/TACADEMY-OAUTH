@@ -1,45 +1,46 @@
 <html>
 
 <body>
-    <div id="welcome"></div>
-    <input type="button" id="loginBtn" value="checking...." onclick="
-        if(this.value === 'Login'){
-            gauth.signIn().then(function(){
-                console.log('Sign In');
-            });
-        } else if(this.value === 'Logout'){
-            gauth.signOut().then(function(){
-                console.log('Sign Out');
-            });
-        }
-    ">
+    <input type="button" id="authBtn" value="checking..." onclick="
+            var gAuth = gapi.auth2.getAuthInstance();
+            if(this.value === 'Login'){
+                gAuth.signIn().then(function(){
+                    refreshAuthStatus();
+                });
+            } else {
+                gAuth.signOut.then(function(){
+                    refreshAuthStatus();
+                });
+            }
+        ">
     <script>
+        function refreshAuthStatus() {
+            var gAuth = gapi.auth2.getAuthInstance();
+            var isLogin = gAuth.isSignedIn.get();
+            console.log('isLogin', isLogin);
+            if (isLogin) {
+                document.querySelector('#authBtn').value = 'Logout';
+            } else {
+                document.querySelector('#authBtn').value = 'Login';
+            }
+        }
+
         function init() {
             console.log('init');
             gapi.load('auth2', function () {
-                gauth = gapi.auth2.init({
-                    client_id: '49053719296-05butb3boju3pva3rio381ibn2itbhpl.apps.googleusercontent.com'
-                });
-                gauth.isSignedIn.listen(function(isLogined){
-                    if(isLogined){
-                        document.querySelector('#loginBtn').value = 'Logout';
-                        var guser = gauth.currentUser.get();
-                        var profile = guser.getBasicProfile();
-                        document.querySelector('#welcome').innerHTML = 'Hello, '+profile.getName();
-                    } else {
-                        document.querySelector('#loginBtn').value = 'Login';
-                    }
+                console.log('auth2');
+                var gauth = gapi.auth2.init({
+                    client_id: '351250545248-b5qiku0u65qhi9dtn27639gsje90uj2r.apps.googleusercontent.com'
                 });
                 gauth.then(function () {
-                    console.log('init success');
+                    console.log('auth init success');
+                    refreshAuthStatus();
                 }, function () {
-                    console.log('init fail');
-                });
-            })
-
+                    console.log('auth fail');
+                })
+            });
         }
     </script>
-
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 
