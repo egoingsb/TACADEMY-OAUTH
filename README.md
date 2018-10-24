@@ -17,3 +17,5 @@ http://bit.ly/ta-oauth
 - [facebook javascript SDK](https://developers.facebook.com/docs/javascript)
 - [facebook 권한참조](https://developers.facebook.com/docs/facebook-login/permissions/)
 - [google login reference](https://developers.google.com/identity/sign-in/web/reference)
+- [facebook sdk init](https://developers.facebook.com/docs/javascript/quickstart)
+- [facebook sdk loging](https://developers.facebook.com/docs/facebook-login/web)
