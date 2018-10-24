@@ -13,7 +13,7 @@ http://bit.ly/ta-oauth
 
 # 참고자료
 - [지식지도 서말](https://seomal.org)
-- [facebook 로그인 플로워 직접 빌드](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow)
+- [facebook 로그인 플로우 직접 빌드](https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow)
 - [facebook user api](https://developers.facebook.com/docs/graph-api/reference/v3.1/user) 
 - [facebook javascript SDK](https://developers.facebook.com/docs/javascript)
 - [facebook 권한참조](https://developers.facebook.com/docs/facebook-login/permissions/)
